@@ -1,0 +1,16 @@
+adt-extensions:
+  overview: index.html
+  download: download.html
+  change: change.html
+  
+Android-ORM:
+  overview: index.html
+  download: download.html
+  userguide: userguide.html
+  api: api/index.html
+
+eclipse-explorer:
+  overview: index.html
+  download: download.html
+  develop:
+    develop: develop.html
