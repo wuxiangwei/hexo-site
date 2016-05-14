@@ -14,3 +14,11 @@ eclipse-explorer:
   download: download.html
   develop:
     develop: develop.html
+
+hexo-theme-nova:
+  overview: index.html
+  download: download.html
+  userguide:
+    layouts: layouts.html
+    helpers: helpers.html
+    

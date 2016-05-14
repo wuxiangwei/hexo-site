@@ -1,0 +1,3 @@
+[submodule "themes/nova"]
+	path = themes/nova
+	url = gh:Jamling/hexo-theme-nova
