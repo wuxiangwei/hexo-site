@@ -18,6 +18,7 @@
     "hexo-renderer-stylus": "^0.3.1",
     "hexo-server": "^0.2.0",
     "lodash": "^4.6.1",
-    "nunjucks": "^2.4.1"
+    "nunjucks": "^2.4.1",
+    "urllib-sync": "^1.1.2"
   }
 }
