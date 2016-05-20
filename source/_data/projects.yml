@@ -7,13 +7,16 @@ Android-ORM:
   overview: index.html
   download: download.html
   userguide: userguide.html
+  change: change.html
   api: api/index.html
 
 eclipse-explorer:
   overview: index.html
   download: download.html
+  change: change.html
   develop:
     develop: develop.html
+    api: api/index.html
 
 hexo-theme-nova:
   overview: index.html

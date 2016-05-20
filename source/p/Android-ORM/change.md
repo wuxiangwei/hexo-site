@@ -2,8 +2,10 @@
 title: Change logs
 date: 2016-01-30 17:43:26
 layout: project
+title2: project.change
+gh:
+  type: get_contents
+  path: CHANGE.md
 ---
 
-## 2016-02-17
-- 1.0 released to jcenter
 
