@@ -5,6 +5,6 @@ layout: project
 title2: project.overview
 gh:
   type: get_contents
-  path: README_zh.md
+  path: README.md
 ---
 
