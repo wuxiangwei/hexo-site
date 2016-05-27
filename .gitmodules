@@ -1,3 +1,9 @@
 [submodule "themes/nova"]
 	path = themes/nova
 	url = gh:Jamling/hexo-theme-nova
+[submodule "node_modules/hexo-generator-github"]
+	path = node_modules/hexo-generator-github
+	url = gh:Jamling/hexo-generator-github
+[submodule "node_modules/hexo-generator-i18n"]
+	path = node_modules/hexo-generator-i18n
+	url = gh:Jamling/hexo-generator-i18n

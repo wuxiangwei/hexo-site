@@ -7,7 +7,7 @@ title: Jamling's Blog and Project Site
 subtitle: Jamling's Blog & Open Project 
 description: Jamling's Open Project include Java, Android, Eclipse and Technology Blog Articles.
 author: Jamling
-language: [zh, en]
+language: [zh,en]
 timezone:
 
 # URL
@@ -25,7 +25,7 @@ archive_dir: archives
 category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
-skip_render: api/**
+skip_render: [p/**/api/*.html,p/**/api/**]
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -72,3 +72,16 @@ deploy:
   repo: git@git.coding.net:Jamling/Jamling
   branch: coding-pages
   #message: 
+github:
+  debug: true
+  user: Jamling
+  cache_dir: gh_cache
+  repos:
+    - Android-ORM
+    - QuickAF
+    - adt-extensions
+    - eclipse-explorer
+    - hexo-theme-nova
+    - jarsigner
+i18n:
+  type: [page,post,asset]
