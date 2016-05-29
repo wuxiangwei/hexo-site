@@ -84,4 +84,5 @@ github:
     - hexo-theme-nova
     - jarsigner
 i18n:
-  type: [page,post,asset]
+  type: [page,post]
+  generator: [archive, category, tag, index]
