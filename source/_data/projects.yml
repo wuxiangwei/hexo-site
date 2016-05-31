@@ -24,4 +24,6 @@ hexo-theme-nova:
   userguide:
     layouts: layouts.html
     helpers: helpers.html
-    
+
+QuickAF:
+  overview: index.html

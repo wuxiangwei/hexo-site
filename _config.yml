@@ -72,6 +72,15 @@ deploy:
   repo: git@git.coding.net:Jamling/Jamling
   branch: coding-pages
   #message: 
+marked:
+  gfm: true
+  pedantic: false
+  sanitize: false
+  tables: true
+  breaks: true
+  smartLists: true
+  smartypants: true
+  
 github:
   debug: true
   user: Jamling

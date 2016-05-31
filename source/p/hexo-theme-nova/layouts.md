@@ -26,6 +26,12 @@ A `type` front-matter is used to mark special pages.
 - categories: Categories page
 - donates: Donate list page.
 
+### other
+- comment: Page comment, default is uyan comment
+- share: Baidu share component
+- analytics: Baidu analytics component
+- donate: page donate component
+
 ## Front-matter
 ### toc
 Show table of contents or not, if not set, the default value is:
