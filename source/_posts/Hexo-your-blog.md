@@ -54,7 +54,8 @@ Index snippets:
 ```
 
 Index output
-<div style="border: 1px solid #f00">
+<div style="display:none;">
+```htmlbars
         <article class="article post" itemscope itemtype="http://schema.org/Article">
           <header class="article-header">
               <h1>
@@ -76,7 +77,10 @@ Index output
         <article class="article post" itemscope itemtype="http://schema.org/Article">
         ...
         </article>
+```
 </div>
+
+{% asset_img index_post.png %}
 
 # Theme
 If you used theme published on https://hexo.io, please see the doc/guide of the theme.

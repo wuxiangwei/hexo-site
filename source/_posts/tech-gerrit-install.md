@@ -2,7 +2,7 @@
 title: Gerrit安装与配置
 date: 2016-05-14 13:46:46
 category: [软件技术]
-tags:
+tags: git
 toc: true
 ---
 ## 简介
