@@ -46,7 +46,16 @@ highlight:
 # Category & Tag
 default_category: uncategorized
 category_map:
+  个人日志: personal
+  惊声尖叫: scream
+  残梦琐言: dream
+  行云流水: essay
+  转载分享: share
+  软件技术: tech
+  Eclipse 插件: pde
+  奇淫巧技: trick
 tag_map:
+  
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date

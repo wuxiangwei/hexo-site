@@ -5,6 +5,13 @@ layout: project
 title2: project.change
 ---
 
+## 4.1.0/2016-06-20
+- Host plugin support open TextEditor input in explorer
+- Uniform open folder/file in explorer behavior
+- Support exploring internal .jar of explorer4java fragment
+- Add new fragment explorer4cdt
+- Add setIdentifier for IExplorable
+
 ## 4.0.0/2016-03-30
 
 - Package with eclipse 4.x

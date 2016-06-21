@@ -26,28 +26,25 @@ toc: true
  
  注：adb 命令找不到，将先配置系统环境变量
  
-从上图可以看到，目前adb识别到的设备数为0.
+从上图可以看到，目前adb识别到的设备数为0。为什么呢？因为缺少驱动。需要安装驱动。不信，可以在设备管理器查看一下，如下图所示：
 
-为什么呢？因为缺少驱动。需要安装驱动。
+<p>{% asset_img image002.jpg %}</p>
 
-不信，可以在设备管理器查看一下，如下图所示：
-{% asset_img image002.jpg %}
 显示黄色！图标的表示我的手机没有相应的驱动，不能被电脑识别。
  
 ### 安装驱动
 下载Android SDK，启动SDK Manager，在Extras中勾选Google USB Driver并点击“Install packages…”安装。
-{% asset_img image004.jpg %}
 
-如果你不是专业的Android开发人员，请自行百度并下载Google USB驱动。 
+<p>{% asset_img image004.jpg %}</p>
 
-下载好驱动之后，进入驱动所在的目录，如我的电脑存放在：
-
+如果你不是专业的Android开发人员，请自行百度并下载Google USB驱动。下载好驱动之后，进入驱动所在的目录，如我的电脑存放在：
 `D:\adt-bundle-windows-x86\sdk\extras\google\usb_driver`
-
 在此目录下，有一个<kbd>android_winusb.inf</kbd>文件，使用像记事本等文本编辑器打开它。
-{% asset_img image005.jpg %}
+
+<p>{% asset_img image005.jpg %}</p>
  
 文件内容如下图，像Google的亲儿子Nexus系统手机，它都配置好了VID和PID，可以直接安装驱动。但是好多手机，需要我们自己配置，谁叫你买的不是Google的产品呢~
+
 {% asset_img image006.jpg %}
 
 回到设备管理器，右键点击自己手机->属性，点击第三个选项卡：“详细信息”，在属性下拉列表中设备硬件Id，OK，看到了吧，你手机的VID，及PID信息都在这呢。选择这两项，右键copy。

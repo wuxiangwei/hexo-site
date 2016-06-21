@@ -15,6 +15,7 @@ Linux下直接在终端命令中输入ssh-keygen
 ```shell
 $ssh-keygen
 ```
+
 {% asset_img image001.png %}
 
 ## 登录gerrit
@@ -24,22 +25,27 @@ $ssh-keygen
 **注：注意用户名大小写**
 
 首次登录成功后，进入注册页面，如下所示：
+
 {% asset_img image003.png %}
 
 此界面可以添加ssh（亦可后续添加）
 
 输入Full Name，并点击Register New Email注册邮件地址。Gerrit会向输入的邮箱地址发送一封注册确认邮件。然后登录自己的邮箱，查收文件，点击验证链接，完成验证。验证通过后，将成功注册用户，就可以Review Code / Upload Code啦。
+
 {% asset_img image005.png %}
  
 ### 设置full-name和email
 点击Settings -> Contact Information更新姓名及邮箱地址。
+
 {% asset_img image007.png %}
+
 当email 不为空时，才算是正式的注册用户。才具备git 操作权限。
 
 这里的username和preferred email必须和git config配置的完全一致，才能upload代码到gerrit
 
 ### 设置ssh public key
 点击settings -> SSH Public Keys链接，将生成的ssh 公钥添加到gerrit
+
 {% asset_img image009.png %}
 
 ### 测试ssh连接
@@ -48,15 +54,20 @@ $ssh-keygen
 $ ssh –p 29418 lijiaming@192.168.135.48
 ```
 {% asset_img image011.png %}
+
 连接成功之后，就可以从gerrit上检出代码了
 
 ## 从gerrit检出代码
 登录gerrit，点击Projects选项卡，在project list中点击要检出的工程
 进入工程详情界面
+
 {% asset_img image013.png %}
+
 点击ssh选项卡，复制代码检出命令
 回到git bash终端，粘贴或手动输入git clone命令
+
 {% asset_img image015.png %}
+
 **注：这里使用的是ssh协议哦**
 
 ## git本地设置
@@ -64,6 +75,7 @@ $ ssh –p 29418 lijiaming@192.168.135.48
 用户名登录gerrit的用户名
 email地址为gerrit上注册的邮箱地址
 必须完全与gerrit上配置的一致，否则将不能push代码
+
 {% asset_img image017.png %}
 
 ### 下载commit模板
@@ -160,6 +172,7 @@ $ git stash list
 
 ### 添加Reviewer
 点击提交日志进去，添加reviewer
+
 {% asset_img image023.png %}
 
 注：输入reviewer的邮箱地址会自动联想，点击点击Add Reviewer确认添加
@@ -167,12 +180,19 @@ $ git stash list
 ### 评审代码
  
 点击文件查看修改
+
 {% asset_img image025.png %} 
+
 可以双击修改后的代码位置写入评审信息
+
 提交或评审
+
 {% asset_img image027.png %}
+
 点击Review，选择Review结果
+
 {% asset_img image029.png %}
+
 如果评审没有问题，则选择+2或+1，如果代码不正确或存在问题，则选择-1或-2。
 
 最后选择评审动作，是否提交到git

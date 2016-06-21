@@ -32,6 +32,7 @@ VBA (Visual Basic for Application)，是一种应用程序自动化语言，所�
 **注：本教程使用的Office为Office 2003简体中文精简版。如果遇到与本文档不符合的地方，请自行解决。**
 
 其次，通过基本的Excel操作，将表格设计成个人所得税计算器，如下图所示：
+
 {% asset_img image001.png %}
 
 以上基本的Excel操作，相信是个用电脑工作的人，应该都会的。
