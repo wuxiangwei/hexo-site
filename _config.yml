@@ -78,9 +78,10 @@ theme: nova
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: git@git.coding.net:Jamling/Jamling
-  branch: coding-pages
-  #message: 
+  repo: 
+    coding: git@git.coding.net:Jamling/Jamling,coding-pages
+    github: git@github.com:Jamling/jamling.github.com.git,master
+  
 marked:
   gfm: true
   pedantic: false
@@ -100,7 +101,9 @@ github:
     - adt-extensions
     - eclipse-explorer
     - hexo-theme-nova
-    - jarsigner
+    - hexo-generator-i18n
 i18n:
   type: [page,post]
   generator: [archive, category, tag, index]
+index_generator:
+  include: category 软件技术

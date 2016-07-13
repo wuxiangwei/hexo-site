@@ -10,5 +10,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://ieclipse.cn/sitemap.xml
-Sitemap: http://ieclipse.cn/baidusitemap.xml
+Sitemap: http://www.ieclipse.cn/sitemap.xml
+Sitemap: http://www.ieclipse.cn/baidusitemap.xml

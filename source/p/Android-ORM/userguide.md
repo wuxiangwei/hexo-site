@@ -5,29 +5,30 @@ layout: project
 title2: project.userguide
 ---
 
-## Add library dependencies
-- Android studio
+## 引入
+- Android studio 
+在项目build.gradle中添加以下依赖
 ```gradle
 dependencies {
     compile 'cn.ieclipse.aorm:aorm-core:1.0'
 }
 ```
-- Eclipse
-Install [Android ADT-extension](https://marketplace.eclipse.org/content/android-adt-extensions) plugin
+- Eclipse 
+安装 [Android ADT-extension](https://marketplace.eclipse.org/content/android-adt-extensions) 插件，然后Add ORM capapility
 
-## Settings
+## 设置
 
-Optional settings, setting the Aorm globally.
+设置Aorm的一些全局设置
 ```java
-Aorm.enableDebug(true);// Enable/Disable debug to print SQL
-Aorm.allowExtend(false);// Disable model bean extend
-Aorm.setExactInsertOrUpdate(true);//Set use actuarial insertOrUpdate. If true, will query the object from database, insert if not exists or update if exist, otherwise insert when PK is 0 or update when PK more than 0 (maybe update fail)
+Aorm.enableDebug(true);// 启用/禁用debug，在debug模式下会打印SQL等日志
+Aorm.allowExtend(false);// 允许/禁止模型继承，如果开启继承，ROM映射模型将会从父类中查找映射字段
+Aorm.setExactInsertOrUpdate(true);//设置是否精确的插入或更新操作。如果设置为true, 在执行写操作之前先查询数据库，如果查询出来的对象不存在，则插入新数据；如果存在，则更新数据库。如果设置为false，那么则根据主键是否为0来决定插入或更新操作（如果主键大于0，则执行更新操作，有可能会导致更新失败）。
 ```
 
-## Create model bean
+## 创建映射模型
 
-### Add mapping table
-Add @Table annotation in your java bean
+### 设置映射表
+只需简单地对class添加@Table注解，即可设置对数据库表的映射
 
 ```java
 @Table(name = "student")
@@ -35,15 +36,17 @@ public class Student implements java.ioSerializable{
     //...
 }
 ```
-### Add column mapping
-Add @Column annotation for java bean field
-- pk (primary key field)
+
+### 设置映射字段
+对Java bean的属性添加@Column注解
+
+- pk (标识为主键)
 id is true
 ```java
     @Column(name = "_id", id = true)
     private long id;
 ```
-- normal field
+- 普通字段
 ```java
     @Column(name = "_name")
     private String name;
@@ -51,18 +54,18 @@ id is true
     @Column(name = "_age")
     private int age;
 ```
-- un-mapping field
-No Aorm annotation assigned.
+- 非映射字段
+如果不想映射数据库字段，则无需设置@Column注解
 ```
     private String address;
 ```
 
-The bean must generate getter/setter methods
+映射的属性必须设置标准的Getter/Setter属性。
 
-## Create table
-If Android ADT-extensions install in Eclipse. Select the java element includes Aorm beans and Open New ORM Provider to generate ContentPrivider in wizards.
+## 创建表
+如果使用的是Eclipse已经安装了Android ADT-extensions插件，则可以使用此插件来生成数据库：右键选择Aorm模型（可以多选）->右键菜单->ADT extensions->New ORM Provider打开组件生成向导来自动生成。
 
-Or create manually.
+当然，您也可以手动创建，如下代码所示：
 ```java
         mOpenHelper = new SQLiteOpenHelper(this.getContext(), "example.db",
                 null, 1) {
@@ -75,47 +78,47 @@ Or create manually.
         };
 ```
 
-## Usage
+## 示例
 
-### Query
+### 查询
 
-#### Simple query
-Query all students
+#### 简单查询
+查询所有的学生记录。
 ```java
 Session session = ExampleContentProvider.getSession();
-// simplest query, query all student table.
+// 最简单的查询，查询所有的记录
 Criteria criteria = Criteria.create(Student.class);
 List<Student> list = session.list(Student.class);
 ```
-Query to cursor, so used it in CursorAdapter
+查询为cursor对象，cursor可以直接在CursorAdapter中使用
 ```java
 Cursor c = session.query(criteria);
 ```
 
-Query to single object
+查询单个学生信息
 ```java
-// query student whose id is 4
+// 查询主键为4的学生
 s = session.get(Student.class, 4);
 ```
-#### Restriction query
-Equals
+#### 条件查询
+Equals查询
 ```java
-// add restrication: id equals
+// 添加id equals条件
 criteria.add(Restrictions.eq("id", 1));
 ```
-Like
+Like查询
 ```java
-// add restriction: name like Jamling
+// 添加姓名中包含Jamling的学生
 criteria.add(Restrictions.like("name", "Jaming"));
 ```
-Compare
+比较查询
 ```java
-// add restriction: age > 30
+// 添加年龄大于30岁条件
 criteria.add(Restrictions.gt("age", 30));
 ```
-Order
+排序
 ```
-// add order
+// 按年龄升序排序
 criteria.addOrder(Order.asc("age"));
 ```
 Distinct
@@ -125,16 +128,18 @@ criteria.setDistinct(true);
 ```
 Limit
 ```
-// set limit from row 10 to 20
+// 限定查询第10到20条记录
 criteria.setLimit(10, 10);
 ```
 
-#### Join query
-The Criteria support four join
-1. Left Join
-2. Left outer join
-3. Inner join
-4. Cross join
+#### 连接查询
+Criteria支持以下四种连接
+1. 左连接
+2. 左外连接
+3. 内连接
+4. 交叉连接（笛卡尔积）
+
+通过Criteria.create方法来创建连接。如下示例代码。
 
 ```java
 Criteria criteria = Criteria.create(Student.class, "s")
@@ -147,7 +152,7 @@ Student s = (Student) item[0];
 Grade g = (Grade) item[1];
 ```
 
-### Insert
+### 插入记录
 ```java
 Session session = ExampleContentProvider.getSession();
 // insert
@@ -156,7 +161,7 @@ s.setName("Jamling");
 long rowId = session.insert(s, null);
 ```
 
-### Update
+### 更新记录
 ```java
 // update student's name to Jame whose id is 1
 s.setId(1);
@@ -164,7 +169,7 @@ s.setName("Jame");
 int rows = session.update(s);
 ```
 
-### Delete
+### 删除记录
 ```java
 // delete student whose id is 2
 session.deleteById(Student.class, 2);

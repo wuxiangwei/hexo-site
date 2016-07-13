@@ -16,14 +16,21 @@ eclipse-explorer:
   change: change.html
   develop:
     develop: develop.html
-    api: api/index.html
+    api: http://dl.ieclipse.cn/api/explorer/index.html
 
 hexo-theme-nova:
   overview: index.html
   download: download.html
   userguide:
     layouts: layouts.html
+    front-matter: front-matter.html
     helpers: helpers.html
+    plugins: plugins.html
 
+hexo-generator-i18n:
+  overview: index.html
+  download: download.html
+  
 QuickAF:
   overview: index.html
+  download: download.html

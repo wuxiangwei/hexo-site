@@ -114,145 +114,22 @@ The layout tree
 
 {% asset_img layout.png %}
 
-<pre>
-layout
-	post
-		index.swig // home
-		post.swig // post detail
-		archive.swig // archive/tag/category 
-		widget_xxx.swig // search, tags, categories, recently... widget_xxx.swig // search, tags, categories, recently...widget_xxx.swig // search, tags, categories, recently...
-	project
-		projects.swig // project home, list repos on github
-		releases.swig // list repo releases on github
-		contents.swig // display repo contents on github
-		sidebar.swig // project navigator side bar
-	portail
-		header.swig // html head, header
-		footer.swig // html footer
-		comment.swig // page comment
-		toc.swig    // toc suffix
-	page
-		categories.swig // all categories
-		donates.swig // donate records and rank
-	index.swig // index layout dispatcher, link to post/index.
-	post.swig // post layout dispatcher.
-	page.swig // page layout dispatcher.
-	project.swig // project layout dispatcher.
-</pre>
-
-### post 
-
-The index page is a special article list page, listing all post with excerpt in main container.
-
-The archive, category, tag page regards as archive list page, listing article archive list in main container.
-
-The post detail page display the post content in main container
-
-layout/<var>post.swig</var>:
-```htmlbars
-
-<div class="container container-fluid">
-  <div class="col-sx-12 col-sm-8 col-md-9 col-lg-9">
-    {%- if is_home() %}
-    {{ partial('post/index') }}
-    {%- elseif is_archive() || is_category() || is_tag() %}
-    {{ partial('post/archive') }}
-    {%- elseif is_post() %}
-    {% set show_toc = theme.toc.post && page.toc %}
-    {{ partial('post/post', {post: page}) }}
-    {%- endif %}
-  </div>
-  <!-- aside -->
-  <div class="col-sx-6 col-sm-4 col-md-3 col-lg-3">
-    <aside id="navbar-toc">
-      {%- if page_toc() %}
-      {{ partial('partial/toc') }}
-      <script>
-      $('body').scrollspy({ target: '#navbar-toc' });
-      </script>
-      {%- else %}
-      {%- for widget in theme.post_widgets %}
-      {# partial('post/widget_' + widget) #}
-      {%- endfor %}
-      {%- endif %}
-    </aside>
-  </div>
-</div>
-```
-### page
-
-For common page, display content in main container, and TOC in right aside.
-
-For special page, dispatcher to special layout.
-
-layout/<var>page.swig</var>:
-```htmlbars
-{%- if page.type === 'categories' %}
-{{ partial('page/categories', {}) }}
-{%- elseif page.type === 'donates' %}
-{{ partial('page/donates', {}) }}
-{%- else %}
-<div class="container container-fluid">
-  <div class="row">
-    <div id="content-inner" class="col-sx-12 col-sm-8 col-md-9 col-lg-9">
-      <article>
-      ... article content column ...
-      </article>
-      <div>
-	    <nav>{{ nova_paginator2() }}</nav>
-        {{ partial('./partial/donate') }}
-        {{ partial('./partial/comment') }}
-      </div>
-    </div>
-    
-    <div class="col-sx-6 col-sm-4 col-md-3 col-lg-3">
-      <aside id="article-toc" role="navigation">
-      ... toc aside column ...
-      </aside>
-    </div>
-  </div>
-</div>
-{%- endif %}
-
-```
-
-### project
-
-Projects page, listing repos on github
-
-Other page, display content in main container, TOC in right aside and nagivation bar in left aside.
-
-layout/<var>project.swig</var>:
-```js
-{% if page.gh %}
-  {% set gh = gh_opts() %}
-  {% if gh.type === 'get_contents' %} 
-    {% set page.content = gh_contents(gh) %}
-    {{ partial('project/contents', {} )}}
-  {% elseif gh.type === 'get_repos' %}
-    {{ partial('project/projects', {} )}}
-  {% elseif gh.type === 'get_releases' %}
-    {{ partial('project/releases', {} )}}
-  {% endif %}
-{% else %}
-  {{ partial('project/contents', {} )}}
-{% endif %}
-```
+Please see [nova layout](/en/p/hexo-theme-nova/layouts.html) for more information.
 
 # Plugin
 There are many [plugins](https://hexo.io/plugins) of [hexo], it's easy to write a plugin under [hexo].
-Just write a <var>.js</var> under <var>script</var> in your theme.
+Just write a <var>.js</var> under <var>scripts</var> in your theme.
 
-here is a sample (<var>script</var>/<var>helpers.js</var>) to write a helper plugin to return page title.
+here is a sample (<var>scripts</var>/<var>helpers.js</var>) to write a helper plugin to return page title.
 ```js
 // return page title.
-hexo.extend.helper.register('page_title', function(){
-  var p = this.page;
+hexo.extend.helper.register('page_title', function(page){
+  var p = page ? page : this.page;
   var ret = '';
-  if (p.title2) { // if has a title2 in front-matter, i18n title2 value as title
+  if (p.title2) {
     ret = this.i18n(p.title2);
   }
-  else if (p.title){ // use title value as title 
+  else if (p.title){
     ret = p.title;
   }
   return ret;
@@ -262,41 +139,38 @@ hexo.extend.helper.register('page_title', function(){
 And another sample of display categories in post:
 ```js
 // insert category of post
-hexo.extend.helper.register('post_cates', function(post){
+hexo.extend.helper.register('post_cates', function(post, options){
+  var o = options || {};
+  var _class = o.hasOwnProperty('class') ? o.class : 'category-item';
+  var icon = o.hasOwnProperty('icon') ? o.icon : 'glyphicon glyphicon-folder-close';
   var cats = post.categories;
   var _self = this;
   var ret = '';
   if (cats == null || cats.length == 0) {
       return ret;
   }
-  ret += '<span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;' + _self.__('category.label') + '';
-  ret += '<ol class="breadcrumb category">';
-  cats.forEach(function(item){
-    ret += '<li><a class="" href="' + _self.url_for_lang(item.path) + '">' + item.name + '</a></li>';
+  ret += '<span class="post-category">';
+  ret += '<i class="' + icon + '"></i><span class="hidden-xs">' + _self.__('category.label') + '</span>';
+  cats.forEach(function(item, i){
+    ret += '<a class="' + _class + '" href="' + _self.url_for_lang(item.path) + '">' + item.name + '</a>';
   });
-  ret += '</ol>';
+  ret += '</span>';
   return ret;
 });
 ```
-Use in layout/post.swig
+Use in layout/post/index.swig
 
 ```htmlbars
-          <footer class="post-item-footer">
-            {{ post_cates(post) }} 
-            {{ post_tags(post) }}
-          </footer>
+{{ post_cates(post) }} 
 ```
 Will output:
 <pre>
-    <footer class="post-item-footer">
-            <span class="glyphicon glyphicon-folder-close" aria-hidden="true"></span>&nbsp;分类<ol class="breadcrumb category"><li><a class="" href="/categories/软件技术/">软件技术</a></li><li><a class="" href="/categories/软件技术/Web/">Web</a></li></ol> 
-            <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>&nbsp;标签<ol class="breadcrumb tag"><li><a class="" href="/tags/Hexo/">Hexo</a></li><li><a class="" href="/tags/Node-js/">Node.js</a></li></ol>
-    </footer>
+    <span class="post-category"><i class="glyphicon glyphicon-folder-close"></i><span class="hidden-xs">分类</span><a class="category-item" href="/categories/tech/">软件技术</a><a class="category-item" href="/categories/tech/Web/">Web</a></span>
 </pre>
 
-The [Nova] rewrite lost of helper of [hexo] to simplify the style. Please visit [Helpers](http://ieclipse.cn/p/hexo-theme-nova/helpers.html) for more informations.
+The [Nova] rewrite lost of helpers of [hexo] to simplify the style. Please visit [Helpers](/en/p/hexo-theme-nova/helpers.html) for more informations.
 
-## Front-matter
+# Front-matter
 
 {% blockquote Docs--- https://hexo.io/docs/front-matter.html %}
 Front-matter is a block of YAML or JSON at the beginning of the file that is used to configure settings for your writings. Front-matter is terminated by three dashes when written in YAML or three semicolons when written in JSON.
@@ -304,113 +178,13 @@ Front-matter is a block of YAML or JSON at the beginning of the file that is use
 
 So you can use it to do lots of things.
 
-### toc 
-Whether show toc or not, default post off, page and project on
+See [Nova Front-matter](/en/p/hexo-theme-nova/front-matter.html) for more information.
 
-Sample (source of current page): 
-
-```yaml
----
-title: Hexo your blog
-date: 2016-03-04 12:48:31
-category: [软件技术, Web]
-tags: [Hexo, Node.js]
-toc: true
----
-
-# Overview
-
-This article...
-```
-
-### title2
-I18n title key, if title2 translated it will replace title
-
-Sample (Source of "[About](/about) "):
-
-```yaml
----
-title: 关于
-date: 2016-01-01 17:43:47
-title2: menu.about
----
-# About author
-
-Jamling，...
-```
-### gh 
-[hexo-generator-github] used in project layout, has four attr <var>type</var>, <var>path</var>, <var>user</var>, <var>repo</var>, see [project layout](#project).
-
-Sample (Source of "[p/Android-ORM](/p/Android-ORM)"):
-```yaml
----
-title: Android-ORM
-date: 2016-01-30 17:43:26
-layout: project
-title2: project.overview
-gh:
-  type: get_contents
-  path: README_zh.md
-  user: Jamling
-  repo: Android-ORM
----
-```
-
-What's the page output? see the snippets of helpers.js in [hexo-generator-github] plugin.
-
-```js
-function gh_contents(options){
-  var o = options || {}
-  var user = o.hasOwnProperty('user') ? o.user : this.config.github.user;
-  var name = o.hasOwnProperty('repo') ? o.repo : null;
-  var path = o.hasOwnProperty('path') ? o.path : 'README.md';
-  var ref = o.hasOwnProperty('ref') ? o.ref : 'master';
-  
-  if (name === undefined) {
-    return '';
-  }
-  
-  var cache = (this.gh_read_cache(this.page));
-  if (cache){
-	  return this.markdown(cache.toString());
-  }
-  
-  gh.setToken(this.config.github.token);
-  var url = util.format('repos/%s/%s/contents/%s', user, name, path);
-  console.log("no cache, and try load from : " + url);
-  var repo = gh.reqSync(url, {data:{'ref': ref}});
-  if (repo && repo.content){
-    var md = new Buffer(repo.content, repo.encoding).toString();
-    var content = this.markdown(md);
-    this.gh_write_cache(this.gh_cache_dir(this.page, md));
-    return content;
-  }
-  return '';
-}
-
-```
-
-### type 
-page type used in page layout to extend page, see [page layout](#page)
-
-Sample (Source of "[donate](/donate) "):
-
-```yaml
----
-title: 捐赠墙
-date: 2016-03-18 16:42:58
-type: donates
-title2: menu.donate
----
-```
+# Optimize
 
 ## I18n
 
 [Nova] use [hexo-generator-i18n] to generate multi-languages site. The default languages is Chinese and <var>root</var>/<var>en</var> is Englisth site.
-
-[hexo-generator-i18n] plugin is located in [Nova] <var>script</var>, and divided into separated plugin few days ago.
-
-# Optimize
 
 ## Highlight
 
@@ -472,7 +246,7 @@ Find all images in article and add fancybox style.
 ## Donate
 
 partial/donate.swig support donate in article, the 2d-code images is under image folder.
-- donate_alipay_blog.png: Donate via Alipay
+- donate_alipay.png: Donate via Alipay
 - donate_wechat.png: Donate via Wechat
 
 ## Baidu site tools
@@ -520,6 +294,6 @@ After site added, you can do
 
     
 [hexo]: https://hexo.io
-[Nova]: http://ieclipse.cn/p/hexo-theme-nova
+[Nova]: /en/p/hexo-theme-nova
 [hexo-generator-github]: http://github.com/Jamling/hexo-generator-github
 [hexo-generator-i18n]: http://github.com/Jamling/hexo-generator-i18n

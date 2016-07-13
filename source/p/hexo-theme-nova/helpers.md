@@ -1,14 +1,90 @@
 title: Helpers
 layout: project
 title2: hexo-theme-nova.userguide.helpers
-gh:
- path: helpers.md
- type: get_contents
 ---
+
+{% blockquote hexo.io https://hexo.io/docs/helpers.html Helpers  %}
 Helpers are used in templates to help you insert snippets quickly.  Helpers cannot be used in source files.
+{% endblockquote %}
 
-## Overwrite
+Helpers of nova are located under theme `scripts` folder
 
+## helpers.js
+
+### head_title
+
+Returns page title. `title2` assigned in front-marker the title will be i18n output
+
+### head_keyword
+Return keyword meta
+
+### head_description
+Return description meta
+
+### header_menu
+@param `className` class of menu item, param may changed in feature
+Return menu navigation
+
+### page_title
+@param `page` if undefined means current page.
+Return the page title, usually place to `<head><title>`
+
+### page_path
+@param `post`  the post
+@param `options` the options
+Return post path navination
+
+Option | Description | Default
+--- | --- | ---
+`class` | The path item class | category-item
+`icon` | The path preffix icon class | glyphicon glyphicon-folder-close
+
+### page_excerpt
+@param `post` the post, if undefined means current page
+Return page excerpt, if <!-- more --> not avaliable in .md, return the first paragraph as excerpt.
+
+### post_cates
+@param `post`  the post
+@param `options` the options
+Retrun categories in post
+
+Option | Description | Default
+--- | --- | ---
+`class` | The path item class | category-item
+`icon` | The path preffix icon class | glyphicon glyphicon-folder-close
+
+### post_tags
+@param `post`  the post
+@param `options` the options
+Return post tags in post
+
+Option | Description | Default
+--- | --- | ---
+`class` | The path item class | tag-item
+`icon` | The path preffix icon class | glyphicon glyphicon-tags
+
+### page_share_jiathis
+@param `post` the post, if undefined means current page
+@param `webid` [the webib of jiathis share](http://www.jiathis.com/help/html/support-media-website), if empty will redirect to share target page of jiathis.
+Return share link of post
+
+### page_uid
+@param `page` page or this.page if undefined.
+Return the unique id of page
+
+### widget_cates
+
+List categories in post widget.
+
+Option | Description | Default
+--- | --- | ---
+`show_count` | Show post count under category | true
+
+### widget_tags
+
+List tags in post widget.
+
+## list_categories.js
 ### nova_list_categories
 
 Inserts a list of all categories.
@@ -30,6 +106,7 @@ Option | Description | Default
 `class` | Class name of category list. | category
 `transform` | The function that changes the display of category name. |
 
+## list_archives.js
 ### nova_list_archives
 
 Inserts a list of archives.
@@ -73,6 +150,7 @@ Option | Description | Default
 `transform` | The function that changes the display of archive name. |
 `post_limit` | The posts display limitation. (add in nova) | 10
 
+## list_posts.js
 ### nova_list_posts
 
 Inserts a list of posts. Only changs the class style.
@@ -91,6 +169,7 @@ Option | Description | Default
 `amount` | The number of posts to display (0 = unlimited) | 6
 `transform` | The function that changes the display of post name. |
 
+## paginator.js
 ### nova_paginator
 
 Inserts a paginator. Similar to paginator, adds class option for paginator bar.
@@ -121,6 +200,7 @@ Option | Description | Default
 --- | --- | ---
 `show_name` | Show page title | false
 
+## toc.js
 ### nova_toc
 
 Parses all heading tags (h1~h6) in the content and inserts a table of contents.
@@ -142,4 +222,3 @@ Option | Description | Default
 ``` js
 {{ nova_toc(page.content, {class:'nav toc-ul', deep: 6, expand:6}) }}
 ```
-

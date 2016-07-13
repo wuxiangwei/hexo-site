@@ -5,6 +5,9 @@ layout: project
 title2: project.change
 ---
 
+## 4.0.1/2016-07-12
+- Fix can't open docs issue in edit component page
+
 ## 4.0.0/2016-03-30
 
 - Package with eclipse 4.x
