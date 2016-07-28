@@ -5,7 +5,9 @@ category: [软件技术]
 tags:
 toc: true
 ---
+
 <script src="http://cdn.bootcss.com/highlight.js/9.1.0/languages/vbscript.min.js" ></script>
+
 # VBA简介
 ## VBA
 VBA (Visual Basic for Application)，是一种应用程序自动化语言，所谓的应用程序自动化，就是通过程序或者脚本（VBS）让应用程序（Word, Excel）自动化完成一些工作（自动填充内容，自动计算等）。
@@ -447,4 +449,3 @@ Email: li.jamling@gmail.com
 
 注：
 后面我可能会再制作Excel VBA高级教程，面向的读者是已有VBA基础的读者。
-

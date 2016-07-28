@@ -7,9 +7,9 @@ toc: true
 ---
 
 ## 痛点
-从2013年开始，本人开始活跃于github，以前托管于sourceforge、svn spot和oschina的开源项目，陆续迁移到了github。此前，我一直使用的是wiki系统来维护相关开源项目的文档及下载等。那时，Markdown还没有现在这么流行，在sourceforge等网站，我几乎不放文档。但迁移到github后，将之前的wiki页面渐渐转成了Markdown页面。在迁移到github之后，我比较重视文档，源代码的修改，有可能需要更新文档。此前wiki网站因为访问太慢，空间也不是特别稳定，在今年终于决定放弃维护，转而使用github page功能来托管这些项目文档。
+从2013年开始，本人开始活跃于github，以前托管于sourceforge、svn spot和oschina的开源项目，陆续迁移到了github。此前，我一直使用的是wiki系统来维护相关开源项目的文档及下载等。那时，Markdown还没有现在这么流行，在sourceforge等网站，我几乎不放文档。但迁移到github后，将之前的wiki页面渐渐转成了Markdown页面。在迁移到github之后，我比较重视文档，源代码的修改，有可能需要更新文档。此前wiki网站因为访问太慢，空间也不是特别稳定，在今年终于决定放弃维护，转而使用github pages功能来托管这些项目文档。
 
-github是一个静态空间，不支持php等动态语言。虽然如此，不过也有逼格高的玩法。当初曾想过使用jekyll来建站，不过因为工作太忙，没有时间学习。后来无意之中接触了hexo，hexo可以完全兼容github markdown，觉得hexo更适合我一些。于是试用了若干plugin和theme，对其blog功能还是非常满意，但是如果要展现项目文档，还是显得捉襟见肘。我不可能每次更新github后，都手动复制一份相关的文档再更新到博客站点。如何自动抓取github相关的页面等内容成了一个非常大的痛点。
+github pages是一个静态空间，不支持php等动态语言。虽然如此，不过也有逼格高的玩法。当初曾想过使用jekyll来建站，不过因为工作太忙，没有时间学习。后来无意之中接触了hexo，hexo可以完全兼容github markdown，觉得hexo更适合我一些。于是试用了若干plugin和theme，对其blog功能还是非常满意，但是如果要展现项目文档，还是显得捉襟见肘。我不可能每次更新github后，都手动复制一份相关的文档再更新到博客站点。如何自动抓取github相关的页面等内容成了一个非常大的痛点。
 
 <!-- more -->
 

@@ -6,30 +6,27 @@ tags: [Hexo, Node.js]
 toc: true
 ---
 
-<style>
-.nowrap {
-    word-wrap: normal;
-    word-break: keep-all;
-    white-space: pre;
-}
-</style>
-
 ## Hexo高亮
 
-hexo已实现代码高亮，代码封装在hexo-util插件中，使用的是[hightlight.js]，通过`include_code`tag标签来使用，功能已经很强大了，而且自带行号显示，可以满足大多数博主的需求了。但是它仍然存在一些局限性，比如在[Nova]主题中，有些语言不支持，无法高亮，而且界面也比较丑，所以个人还是倾向于自由使用[hightlight.js]来高亮代码，使用起来比较灵活，还能扩展一些功能，但是[hightlight.js]默认是不带行号的。为此，也是遇到了不少坑。后来在某歪果仁的博客中找到一个行号解决方案，在其基础上，终于实现了一个较为理想的代码高亮方案。
+hexo已实现代码高亮，代码封装在hexo-util插件中，使用的是[highlight.js]，通过`include_code`tag标签来使用，功能已经很强大了，而且自带行号显示，可以满足大多数博主的需求了。但是它仍然存在一些局限性，比如在[Nova]主题中，有些语言不支持，无法高亮，而且界面也比较丑，所以个人还是倾向于自由使用[hightlight.js]来高亮代码，使用起来比较灵活，还能扩展一些功能，但是[highlight.js]默认是不带行号的。为此，也是遇到了不少坑。后来在某歪果仁的博客中找到一个行号解决方案，在其基础上，终于实现了一个较为理想的代码高亮方案。
+
+如果想和我一样爱折腾，请继续阅读本文，再次声明，本系列需要一定的前端基础知识。
 
 ## 加载highlight.js
 使用[highlight.js]非常简单，只需以下简单的几步。
 首先，在博客站点根目录的<var>_config.yml</var>中，将<var>highlight.enable</var>设置为<code>flase</code>以关闭自带的高亮方案。
+***注：关闭自带高亮方案后，需hexo clean***
 
-其次，引入highlight.js的css及js（如果使用较多，推荐在主题模板中作为全局js引入）。
+其次，引入[highlight.js]的css及js（推荐在主题模板中作为全局css和js引入，引入的位置在`<head></head>`之间）。
+
 ``` html
 <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css">
 <script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
 ```
 [highlight.js]有许多代码风格，博主可以根据博客站点主题风格，选择合适的代码风格，我使用的是github风格。
 
-然后，在文档加载完毕之后初始化
+然后，在文档加载完毕之后初始化（推荐在`</body>`之前的`<script></script>`中引入）
+
 ``` js 
   // highlight
   hljs.initHighlightingOnLoad();
@@ -56,6 +53,7 @@ hexo已实现代码高亮，代码封装在hexo-util插件中，使用的是[hig
 ```
 
 这样`<code>`标签多了一个`has-numbering`的样式，在`<pre>`结节下，动态添加了一个class为`pre-numbering`的`ul`列表来显示行号。CSS代码如下：
+
 ```css
 code.has-numbering {
   margin-left: 10px;
@@ -147,6 +145,33 @@ white-space: pre;
 }
 ```
 
-[hightlight.js]: https://highlightjs.org/
+## 支持更多的代码语言
+
+[highlight.js]默认支持大部分主流程序语言的高亮，但是也有小部分语言是不支持的，比如[Excel VBA基础实例教程]中贴了不少VB代码，需要额外加载[highlight.js]的VBScript.js才能高亮，只需在md源文件内容最前方引入vbscript.js即可。如下所示：
+
+```html
+<script src="http://cdn.bootcss.com/highlight.js/9.1.0/languages/vbscript.min.js" ></script>
+
+# VBA简介
+## VBA
+```
+
+## html高亮优化
+使用[highlight.js]对html代码高亮，有时发现竟然无法高亮，直接输出了html，尤其是贴hexo主题模板代码时，还会导致页面无法被hexo解析。如果遇到这种问题，需要使用`htmlbars`来标识代码语言，然后代码中的模板控制语句，需要优化，比如swig模板，原来的
+{% raw %}
+``` htmlbars
+{% if ... %}
+```
+{% endraw %}
+
+要改为
+{% raw %}
+```
+{%- if ... %}
+```
+{% endraw %}
+
+[highlight.js]: https://highlightjs.org/
 [hexo]: https://hexo.io
 [Nova]: http://github.com/Jamling/hexo-theme-nova
+[Excel VBA基础实例教程]: http://www.ieclipse.cn/2016/05/13/tech-vba-guide/
