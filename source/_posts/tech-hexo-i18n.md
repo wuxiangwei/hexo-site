@@ -1,7 +1,7 @@
 ---
 title: Hexo多语言站点解决方案
 date: 2016-06-02 20:42:28
-category: [软件技术]
+category: [软件技术, Web]
 tags: hexo
 toc: true
 ---

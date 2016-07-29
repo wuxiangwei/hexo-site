@@ -18,7 +18,7 @@ Windows 7 64位, JDK 1.8
 
 下载安装都很顺利，但是在运行的时候，竟然直接跳出一个错误：
 
-```
+```apache
 ---------------------------
 Eclipse
 ---------------------------
@@ -30,7 +30,7 @@ An error has occurred. See the log file C:\Users\Jamling\.p2\pool\configuration\
 
 日志内容如下：
 
-```
+``` apache
 !SESSION 2016-06-06 10:59:03.958 -----------------------------------------------
 eclipse.buildId=unknown
 java.version=1.8.0_45
@@ -70,7 +70,7 @@ java.lang.IllegalStateException: Unable to acquire application service. Ensure t
 ## 无法创建workspace
 运行eclipse之后，首次创建workspace，没想到又一个错误：
 
-```
+```apache
 ---------------------------
 Eclipse
 ---------------------------
@@ -80,8 +80,10 @@ E:\eclipse\android-neon\workspace\.metadata\.log.
 确定   
 ---------------------------
 ```
+
 日志内容如下：
-```
+
+```apache
 !SESSION 2016-06-06 14:03:47.781 -----------------------------------------------
 eclipse.buildId=unknown
 java.version=1.8.0_45

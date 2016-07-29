@@ -59,6 +59,13 @@ Counter表创建成功之后，无需添加数据库字段。点击博客文章�
 
 关于更多信息，可以参考[为NexT主题添加文章阅读量统计功能]
 
+### 创建索引
+待成功生成第一条数据之后，需要对`Counter` Class生成唯一索引，以防止出现对同一文章出现多次统计的错误。如下图所示：
+
+{% asset_image lc_index.png %}
+
+点击“其它”->“索引”，在弹出的对话框中选择`pageId`，再点击“创建”按钮，如果Class中的数据`pageId`唯一的话，那么将会成功创建索引。否则，需要手动删除重复数据再创建索引。
+
 ## 功能实现
 上面的准备工作做完之后，就可以在主题中实现文章阅读计数功能了。
 
@@ -184,6 +191,10 @@ Counter表创建成功之后，无需添加数据库字段。点击博客文章�
 ## 参考
 JavaScript 数据存储开发指南: https://leancloud.cn/docs/leanstorage_guide-js.html
 LeanClound REST API详解: https://leancloud.cn/docs/rest_api.html
+
+## 文档历史
+
+- 2016-07-29 添加[创建索引](#创建索引)一节 
 
 [Hexo]: https://hexo.io
 [Nova]: http://github.com/Jamling/hexo-theme-nova

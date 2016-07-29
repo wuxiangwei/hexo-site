@@ -1,8 +1,8 @@
 ---
-title: Gerrit使用指南
+title: Gerrit&Git使用指南
 date: 2016-05-14 14:46:29
-category: [软件技术]
-tags:
+category: [软件技术, 其它]
+tags: [git]
 toc: true
 ---
 上篇介绍了Gerrit的安装与配置，本篇介绍的是Gerrit的使用
