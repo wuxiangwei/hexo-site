@@ -5,170 +5,36 @@ layout: project
 title2: project.userguide
 ---
 
-## Add library dependencies
-- Android studio
-```gradle
-dependencies {
-    compile 'cn.ieclipse.aorm:aorm-core:1.0'
-}
-```
-- Eclipse
-Install [Android ADT-extension](https://marketplace.eclipse.org/content/android-adt-extensions) plugin
+## APP结构
+通过简单的设置，即可配置底部栏，顶部菜单栏，页面加载层等常用APP页面
 
-## Settings
+## 自定义控件
+内含丰富的自定义控件，比如FlowLayout, TableLayout, ExpandView, CounterDownButton, BadgeView等，这些都包含在项目示例中。
 
-Optional settings, setting the Aorm globally.
-```java
-Aorm.enableDebug(true);// Enable/Disable debug to print SQL
-Aorm.allowExtend(false);// Disable model bean extend
-Aorm.setExactInsertOrUpdate(true);//Set use actuarial insertOrUpdate. If true, will query the object from database, insert if not exists or update if exist, otherwise insert when PK is 0 or update when PK more than 0 (maybe update fail)
-```
+## 下拉刷新及列表组件
+列表组件使用Google推荐的RecyclerView，下拉刷新集成是的SwipyRefreshLayout。已经实现的有FixedHeader, SwipeMenu等高级功能。
 
-## Create model bean
+## 网络数据
+基于Volley的网络连接框架，支持自定义缓存，json处理使用gson，内置文件上传功能。
 
-### Add mapping table
-Add @Table annotation in your java bean
+## 图像处理
+本框架不重复制造轮子，建议使用universal-image-loader (体积小)或[fresco](https://github.com/facebook/fresco)（功能强大）
 
-```java
-@Table(name = "student")
-public class Student implements java.ioSerializable{
-    //...
-}
-```
-### Add column mapping
-Add @Column annotation for java bean field
-- pk (primary key field)
-id is true
-```java
-    @Column(name = "_id", id = true)
-    private long id;
-```
-- normal field
-```java
-    @Column(name = "_name")
-    private String name;
+## 数据库DB
+本框架不重复制造轮子，推荐使用github上的[Aorm(Android-ORM)](http://www.ieclipse.cn/p/Android-ORM)，sample app中相关示例。
 
-    @Column(name = "_age")
-    private int age;
-```
-- un-mapping field
-No Aorm annotation assigned.
-```
-    private String address;
-```
+## 工具类
+DialogUtils 对话框相关
+ViewUtils 控件相关
+AppUtils App相关
+KeyboardUtils 键盘相关
+StringUtils 字符处理相关
+FontUtils 字体相关
+SDUtils 储存相关
+更多请查看源码，在此就不一一列举了...
 
-The bean must generate getter/setter methods
 
-## Create table
-If Android ADT-extensions install in Eclipse. Select the java element includes Aorm beans and Open New ORM Provider to generate ContentPrivider in wizards.
 
-Or create manually.
-```java
-        mOpenHelper = new SQLiteOpenHelper(this.getContext(), "example.db",
-                null, 1) {
-            public void onCreate(SQLiteDatabase db) {
-                // method 3: use AORM to create table
-                Aorm.createTable(db, Grade.class);
-                Aorm.createTable(db, Student.class);
-                Aorm.createTable(db, Course.class);
-            }
-        };
-```
-
-## Usage
-
-### Query
-
-#### Simple query
-Query all students
-```java
-Session session = ExampleContentProvider.getSession();
-// simplest query, query all student table.
-Criteria criteria = Criteria.create(Student.class);
-List<Student> list = session.list(Student.class);
-```
-Query to cursor, so used it in CursorAdapter
-```java
-Cursor c = session.query(criteria);
-```
-
-Query to single object
-```java
-// query student whose id is 4
-s = session.get(Student.class, 4);
-```
-#### Restriction query
-Equals
-```java
-// add restrication: id equals
-criteria.add(Restrictions.eq("id", 1));
-```
-Like
-```java
-// add restriction: name like Jamling
-criteria.add(Restrictions.like("name", "Jaming"));
-```
-Compare
-```java
-// add restriction: age > 30
-criteria.add(Restrictions.gt("age", 30));
-```
-Order
-```
-// add order
-criteria.addOrder(Order.asc("age"));
-```
-Distinct
-```
-// set district
-criteria.setDistinct(true);
-```
-Limit
-```
-// set limit from row 10 to 20
-criteria.setLimit(10, 10);
-```
-
-#### Join query
-The Criteria support four join
-1. Left Join
-2. Left outer join
-3. Inner join
-4. Cross join
-
-```java
-Criteria criteria = Criteria.create(Student.class, "s")
-                .addChild(Grade.class, "g")
-                .add(Restrictions.eqProperty("s.id", "g.sid"));
-// query to list.
-List<Object[]> ret = session.listAll(criteria);
-Object[] item = ret.get(0);
-Student s = (Student) item[0];
-Grade g = (Grade) item[1];
-```
-
-### Insert
-```java
-Session session = ExampleContentProvider.getSession();
-// insert
-Student s = new Student();
-s.setName("Jamling");
-long rowId = session.insert(s, null);
-```
-
-### Update
-```java
-// update student's name to Jame whose id is 1
-s.setId(1);
-s.setName("Jame");
-int rows = session.update(s);
-```
-
-### Delete
-```java
-// delete student whose id is 2
-session.deleteById(Student.class, 2);
-```
 
 
 
