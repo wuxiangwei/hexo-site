@@ -1,7 +1,7 @@
 ---
 title: ADT extensions
 date: 2015-01-01 12:48:31
-category: [软件技术, Eclipse 插件]
+category: [软件技术, Android]
 tags: [Android, Eclipse, ADT]
 toc: true
 ---
