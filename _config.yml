@@ -110,3 +110,23 @@ i18n:
   generator: [archive, category, tag, index]
 index_generator:
   include: category 软件技术
+  
+# hexo-filter-plugin (https://github.com/Jamling/hexo-filter-highlight) config 
+## highlight in frontend, the plugin (backend) just do some prepare work.
+## you need to read the docs on https://github.com/Jamling/hexo-filter-highlight to getting start
+hljs:
+  enable: true #true to enable the plugin
+  line_number: frontend # add line_number in frontend or backend
+  trim_indent: backend # trim the indent of code block to prettify output. backend or front-end (recommend)
+  copy_code: true # show copy code in caption.
+  label:
+    left: Code
+    right: ':'
+    copy: Copy Code
+ 
+node_sass:
+  outputStyle: compressed
+
+addlink:
+  before_text: <blockquote class="addlink">本文永久链接： # text before the post link
+  after_text:  未经允许，禁止转载，如果您对文章有任何疑问，请在本页提交评论。</blockquote> # text after the post link  

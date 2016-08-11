@@ -7,3 +7,5 @@ public/
 .deploy*/
 themes
 gh_cache
+# eclipse
+.settings
