@@ -2,7 +2,7 @@
 title: Hexo多语言站点解决方案
 date: 2016-06-02 20:42:28
 category: [软件技术, Web]
-tags: hexo
+tags: Hexo
 toc: true
 ---
 Hexo是一个静态博客应用，所以在多语言站点支持上，并不是很好。虽然Hexo支持多语言，但是要生成多语言站点，还是有一些困难的。基于Hexo的一些特性，我给出了几种解决方案
