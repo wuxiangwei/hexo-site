@@ -1,17 +1,9 @@
 # hexo robots.txt
 User-agent: *
 Allow: /
-Allow: /archives/
 
-Disallow: /vendors/
-Disallow: /js/
-Disallow: /css/
-Disallow: /fonts/
-Disallow: /vendors/
-Disallow: /fancybox/
-
-Sitemap: /sitemap.xml
-Sitemap: /category-sitemap.xml
-Sitemap: /tag-sitemap.xml
-Sitemap: /page-sitemap.xml
-Sitemap: /post-sitemap.xml
+Sitemap: http://www.ieclipse.cn/sitemap.xml
+Sitemap: http://www.ieclipse.cn/category-sitemap.xml
+Sitemap: http://www.ieclipse.cn/tag-sitemap.xml
+Sitemap: http://www.ieclipse.cn/page-sitemap.xml
+Sitemap: http://www.ieclipse.cn/post-sitemap.xml

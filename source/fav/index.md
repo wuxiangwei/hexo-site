@@ -25,8 +25,6 @@ date: 2016-07-22 09:47:00
 - [android中EditText插入用户名（块）效果（EditText插入图片）](http://blog.csdn.net/leinote/article/details/9422005)
 - [Android界面特效全汇总 - 千里之外 - 博客频道 - CSDN.NET](http://blog.csdn.net/woshinia/article/details/11039677)
 
-- []()
-
 ## Other
 - opencv http://www.opencv.org.cn/
 - opengl texture http://www.bangchui.org/read.php?tid=9354
@@ -37,5 +35,4 @@ date: 2016-07-22 09:47:00
 - [结构之法 算法之道 - 博客频道 - CSDN.NET](http://blog.csdn.net/v_july_v?viewmode=contents)
 - [响应式截图](http://ami.responsivedesign.is/)
 - http://howtocenterincss.com/
-
--
+- http://idea.qinxi1992.cn/ idea reg server
