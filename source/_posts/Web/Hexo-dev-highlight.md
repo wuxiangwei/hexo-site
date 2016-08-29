@@ -2,7 +2,7 @@
 title: Hexo高级教程之代码高亮
 date: 2016-07-18 22:30:30
 category: [软件技术, Web]
-tags: [Hexo, Node.js]
+tags: [Hexo, js]
 toc: true
 ---
 

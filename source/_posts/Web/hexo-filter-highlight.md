@@ -2,7 +2,7 @@
 title: Hexo静态代码高亮插件
 date: 2016-08-10 22:30:30
 category: [软件技术, Web]
-tags: [Hexo, node.js]
+tags: [Hexo, Node.js]
 toc: true
 ---
 

@@ -2,7 +2,7 @@
 title: Hexo高级教程之多说评论
 date: 2016-07-28 21:30:30
 category: [软件技术, Web]
-tags: [Hexo, Node.js]
+tags: [Hexo, js]
 toc: true
 ---
 
