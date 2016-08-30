@@ -33,7 +33,7 @@ toc: true
 www的CNAME有两条解析路线，默认（国内）路线指向<var>username</var>.coding.me；海外指向<var>username</var>.github.io。也即，在国内访问，其实是访问coding.net上的博客。而海外，则是访问github.io上的博客。那么如何验证访问的是海外还是国内路线呢？先不急，后面有介绍。
 
 PS：
-- 我的顶级域名解析到一个IP地址，其实是ping jamling.coding.me的IP地址，jamling.coding.me的IP地址是变动的。所以有时使用http://ieclipse.cn访问的话，可能会出现无法连接到服务器而导致无法访问。解决的办法是将A记录指向<var>username</var>.coding.me。不过，DNS默认提供了@A记录解析，需要先删除掉才能添加成功（我的另一个域名把系统提供默认@记录解析删除掉了以实现http://domain.com与http://www.domain.com相同的访问效果）。
+- 我的顶级域名解析到一个IP地址，其实是ping jamling.coding.me的IP地址，jamling.coding.me的IP地址是变动的。所以有时使用http://ieclipse.cn 访问的话，可能会出现无法连接到服务器而导致无法访问。解决的办法是将A记录指向<var>username</var>.coding.me。不过，DNS默认提供了@A记录解析，需要先删除掉才能添加成功（我的另一个域名把系统提供默认@记录解析删除掉了以实现http://domain.com 与http://www.domain.com 相同的访问效果）。
 - 我的博客在github和coding.net，都是属于用户Pages，如果是项目Pages，请看我的dl.ieclipse.cn解析规则，CNAME国内解析到pages.coding.net。CNAME海外解析到<var>username</var>.github.io。
 
 ## 验证测试

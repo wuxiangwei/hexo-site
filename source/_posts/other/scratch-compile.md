@@ -17,7 +17,7 @@ toc: true
 - Git，用于下载源代码，同时gradle脚本中也会用到git命令（可注释掉不用）
 
 ## 下载源代码
-请访问https://github.com/LLK/scratch-flash下载Scratch源代码，下载到本地后之后，在我大天朝，先不要急着编译，首先得修改一下编译脚本，不然编译时有些依赖包无法下载。
+请访问https://github.com/LLK/scratch-flash 下载Scratch源代码，下载到本地后之后，在我大天朝，先不要急着编译，首先得修改一下编译脚本，不然编译时有些依赖包无法下载。
 
 - 下载apache-flex-sdk
 参考`scratch.gradle`中ivy仓库配置
@@ -34,7 +34,7 @@ repositories {
     }
 }
 ```
-先下载apache-flex-sdk，版本必须高于4.10.0，这个sdk比较大，有70多M，建议使用其它工具下载好，放到本地。我下载的是4.15.0，具体的下载路径地址为：http://archive.apache.org/dist/flex/4.15.0/binaries/apache-flex-sdk-4.15.0-bin.zip。
+先下载apache-flex-sdk，版本必须高于4.10.0，这个sdk比较大，有70多M，建议使用其它工具下载好，放到本地。我下载的是4.15.0，具体的下载路径地址为：http://archive.apache.org/dist/flex/4.15.0/binaries/apache-flex-sdk-4.15.0-bin.zip
 
 - 下载swfobject
 下载好swfobject\_2\_2.zip。同样放入本地服务器上
@@ -96,11 +96,12 @@ Total time: 15.691 secs
 
 ## 源代码修改
 
-具体的源代码修改，请参考我github上fork的scratch-flash项目。地址为https://github.com/ieclipsecn/scratch-flash/ 代码提交在jamling分支下。大致讲下修改的项目
+具体的源代码修改，请参考我github上fork的scratch-flash项目。地址为https://github.com/ieclipsecn/scratch-flash/
+代码提交在jamling分支下。大致讲下修改的地方
 
 - ifOffline 设置为true，默认是false，然后编译的swf不能好好工作。用离线即可。
 - 默认语言为zh_CN，但是不起作用，猜测应该要写zh-cn值。
-- 跨域crossdomain.xml路径修改为http://cdn.assets.scratch.mit.edu，这个地址允许所有的域访问
+- 跨域crossdomain.xml路径修改为http://cdn.assets.scratch.mit.edu ，这个地址允许所有的域访问
 - 加载媒体库和缩略图片库地址，都改为本地地址，且为相对路径。不然会出现跨域问题，导致编译之后的swf无法加载背景库或角色库。
 
 修改完毕之后，重新编译，如果有错误，根据日志提示，修正错误后再次编译就好了。编译成功之后，会输出Scratch.swf。我修改的代码，输出为Scratch2.swf。
