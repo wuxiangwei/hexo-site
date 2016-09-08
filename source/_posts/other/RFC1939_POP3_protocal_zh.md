@@ -1,7 +1,7 @@
 ---
 title: RFC1939_POP3协议
 date: 2015-01-01 12:48:31
-category: [软件技术, 其它]
+category: [其它]
 tags: []
 toc: true
 ---

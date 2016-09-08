@@ -1,7 +1,7 @@
 ---
 title: Android倒计时控件
 date: 2016-08-02 21:01:00
-category: [软件技术, Android]
+category: [Android]
 tags: [Android, QuickAF]
 toc: true
 description:

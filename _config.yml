@@ -95,7 +95,7 @@ marked:
   smartypants: true
   
 github:
-  debug: true
+  debug: false
   user: Jamling
   cache_dir: gh_cache
   repos:
@@ -109,7 +109,7 @@ i18n:
   type: [page,post]
   generator: [archive, category, tag, index]
 index_generator:
-  include: category 软件技术
+#  include: category 软件技术
   
 # hexo-filter-plugin (https://github.com/Jamling/hexo-filter-highlight) config 
 ## highlight in frontend, the plugin (backend) just do some prepare work.

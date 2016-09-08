@@ -1,7 +1,7 @@
 ---
 title: 使用git打包修改的文件
 date: 2016-09-01 11:42:28
-category: [软件技术, 奇淫巧技]
+category: [奇淫巧技]
 tags: git
 ---
 

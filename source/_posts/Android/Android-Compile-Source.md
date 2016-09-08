@@ -1,7 +1,7 @@
 ---
 title: 编译Android源代码
 date: 2015-01-01 12:48:31
-category: [软件技术, Android]
+category: [Android]
 tags: [Android]
 toc: true
 ---

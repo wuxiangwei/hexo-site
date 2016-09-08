@@ -1,7 +1,7 @@
 ---
 title: Gerrit&Git使用指南
 date: 2016-05-14 14:46:29
-category: [软件技术, 其它]
+category: [其它]
 tags: [git]
 toc: true
 ---

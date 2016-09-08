@@ -1,7 +1,7 @@
 ---
 title: 带NameSpace的xml XPath搜索
 date: 2008-09-29 10:56:00
-category: [软件技术,Java]
+category: [Java]
 tags: [xml]
 toc: true
 ---

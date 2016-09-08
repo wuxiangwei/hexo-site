@@ -1,7 +1,7 @@
 ---
 title: Hexo github页面生成插件
 date: 2016-07-21 20:30:30
-category: [软件技术, Web]
+category: [Web]
 tags: [Hexo, Node.js]
 toc: true
 ---

@@ -1,7 +1,7 @@
 ---
 title: PHP + MySQL批量插入测试
 date: 2016-08-25 18:30:30
-category: [软件技术, Web]
+category: [Web]
 tags: [PHP, MySQL]
 toc: true
 ---

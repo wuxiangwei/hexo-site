@@ -1,7 +1,7 @@
 ---
 title: Scratch源代码编译小记
 date: 2016-08-18 15:34:08
-category: [软件技术, 其它]
+category: [其它]
 tags: Gradle
 toc: true
 ---

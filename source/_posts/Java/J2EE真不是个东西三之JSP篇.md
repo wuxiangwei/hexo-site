@@ -1,7 +1,7 @@
 ---
 title: J2EE真不是个东西三之JSP篇
 date: 2007-8-30 19:39:00
-category: [软件技术,Java]
+category: [Java]
 tags: [J2EE]
 toc: true
 ---

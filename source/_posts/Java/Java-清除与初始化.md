@@ -1,7 +1,7 @@
 ---
 title: 清除与初始化
 date: 2007-10-23 20:13
-category: [个人日志, 惊声尖叫]
+category: [Java]
 tags: []
 toc: false
 ---

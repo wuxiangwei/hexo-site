@@ -1,7 +1,7 @@
 ---
 title: Hexo博客双线部署
 date: 2016-08-29 11:30:30
-category: [软件技术, Web]
+category: [Web]
 tags: [Hexo]
 toc: true
 ---

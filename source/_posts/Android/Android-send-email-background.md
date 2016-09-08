@@ -1,7 +1,7 @@
 ---
 title: Android平台邮件自动发送功能实现
 date: 2012-03-01 21:00:00
-category: [软件技术, Android]
+category: [Android]
 tags: [Android]
 toc: true
 ---

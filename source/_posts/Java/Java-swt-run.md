@@ -1,7 +1,7 @@
 ---
 title: 也谈SWT的运行
 date: 2011-04-14 21:00:00
-category: [软件技术, Java]
+category: [Java]
 tags: [Java, SWT]
 toc: false
 ---

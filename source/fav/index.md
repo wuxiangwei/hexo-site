@@ -36,3 +36,5 @@ date: 2016-07-22 09:47:00
 - [响应式截图](http://ami.responsivedesign.is/)
 - http://howtocenterincss.com/
 - http://idea.qinxi1992.cn/ idea reg server
+- http://shields.io/ 给你的项目打上各种标签
+- https://bandwagonhost.com/vps-hosting.php

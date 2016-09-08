@@ -1,7 +1,7 @@
 ---
 title: Eclipse MPC内容管理策略（译）
 date: 2015-01-03 12:48:31
-category: [软件技术, Eclipse 插件]
+category: [Eclipse 插件]
 tags: Eclipse
 toc: true
 ---

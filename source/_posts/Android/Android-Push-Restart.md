@@ -2,7 +2,7 @@
 title: Android 无法接收推送的问题
 date: 2016-08-12 09:16:41
 tags: [Android]
-category: [软件技术, Android]
+category: [Android]
 toc: false
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Git submodule简介
 date: 2016-06-02 16:42:28
-category: [软件技术, 其它]
+category: [其它]
 tags: git
 ---
 ## 修改历史

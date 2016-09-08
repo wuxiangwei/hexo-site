@@ -1,7 +1,7 @@
 ---
 title: Eclipse 4.6.0 Neon启动问题
 date: 2016-06-06 12:06:31
-category: [软件技术, Eclipse 插件]
+category: [Eclipse 插件]
 tags: Eclipse
 toc: true
 ---

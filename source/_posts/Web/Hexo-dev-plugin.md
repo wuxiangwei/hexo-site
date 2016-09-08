@@ -1,7 +1,7 @@
 ---
 title: Hexo高级教程之插件开发
 date: 2016-07-18 20:30:30
-category: [软件技术, Web]
+category: [Web]
 tags: [Hexo, Node.js]
 toc: true
 ---

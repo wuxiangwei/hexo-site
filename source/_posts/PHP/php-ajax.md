@@ -1,7 +1,7 @@
 ---
 title: PHP + Ajax示例
 date: 2016-08-26 18:30:30
-category: [软件技术, Web]
+category: [Web]
 tags: [PHP, Ajax]
 toc: true
 ---

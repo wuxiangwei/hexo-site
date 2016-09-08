@@ -2,7 +2,7 @@
 title: QuickAF解析REST API综合示例
 date: 2016-08-12 10:16:41
 tags: [Android, QuickAF]
-category: [软件技术, Android]
+category: [Android]
 toc: true
 ---
 

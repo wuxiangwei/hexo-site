@@ -1,7 +1,7 @@
 ---
 title: Eclipse RCP产品国际化
 date: 2010-03-31 21:00:00
-category: [软件技术, Eclipse 插件]
+category: [Eclipse 插件]
 tags: [Eclipse]
 toc: true
 ---

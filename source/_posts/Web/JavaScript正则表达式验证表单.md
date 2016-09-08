@@ -1,7 +1,7 @@
 ---
 title: JavaScript正则表达式验证表单
 date: 2007-06-07 21:57:00
-category: [软件技术, Web]
+category: [Web]
 tags: [js]
 ---
 

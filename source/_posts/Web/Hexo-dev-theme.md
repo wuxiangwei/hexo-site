@@ -1,7 +1,7 @@
 ---
 title: Hexo高级教程之主题开发
 date: 2016-07-14 20:48:30
-category: [软件技术, Web]
+category: [Web]
 tags: [Hexo]
 toc: true
 ---

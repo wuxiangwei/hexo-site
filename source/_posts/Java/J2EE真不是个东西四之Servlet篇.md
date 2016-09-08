@@ -1,7 +1,7 @@
 ---
 title: J2EE真不是个东西四之Servlet篇
 date: 2007-08-31 19:46:00
-category: [软件技术,Java]
+category: [Java]
 tags: [J2EE]
 toc: true
 ---

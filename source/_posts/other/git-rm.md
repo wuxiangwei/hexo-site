@@ -1,7 +1,7 @@
 ---
 title: Git删除受管控的文件
 date: 2016-08-30 11:42:28
-category: [软件技术, 奇淫巧技]
+category: [奇淫巧技]
 tags: git
 ---
 

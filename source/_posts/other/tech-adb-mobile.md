@@ -1,7 +1,7 @@
 ---
 title: 使用ADB连接手机
 date: 2016-05-14 15:34:08
-category: [软件技术, 奇淫巧技]
+category: [奇淫巧技]
 tags:
 toc: true
 ---

@@ -1,7 +1,7 @@
 ---
 title: 轻松做ICO图标
 date: 2006-04-27 11:14:00
-category: [软件技术, 奇淫巧技]
+category: [奇淫巧技]
 tags: []
 toc: false
 ---

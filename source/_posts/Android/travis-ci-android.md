@@ -1,40 +1,53 @@
 ---
-title: QuickAF标题栏介绍
-date: 2016-08-03 21:00:00
+title: 使用Travis-CI构建Android应用
+date: 2016-09-06 21:00:00
 category: [Android]
-tags: [Android, QuickAF]
+tags: [Android, CI]
 toc: true
-description: QuickAF标题栏介绍,QuickAF使用一个IOS风格的TitleBar来实现标题栏
+description: 使用Travis-CI构建github上的Android应用
 ---
 
 ## 简介
-在[QuickAF]框架中，标题栏不使用Android自带的ActionBar或ToolBar，而是使用一个IOS风格的TitleBar来实现。TitleBar的使用非常灵活，主要分为三块区域：
-- 左侧区域，一般放置一个返回按钮，父类AfActivity已经默认点击为finish操作
-- 中间区域，一般显示页面的标题，如“订单详情”
-- 右侧区域，一般放置本页面的相关操作图标或文本按钮
+注册Travis-CI都N长时间了，但是一直没有使用它来构建。今天先使用它构建了两个小的node.js项目，还算顺序，然后使用它来构建[QuickAF]，没有想到竟然是一条如此艰辛的路！特地将构建过程记录如下。
 
 <!-- more -->
 
-## 初始化
-一般来说，一个App的页面风格应该是统一的，所以一般在BaseActivity/BaseFragment中对TitleBar进行初始化。初始化方法一般是放在`initHeaderView()`中，如下所示：
+## 配置
+参考官方文档[https://docs.travis-ci.com/user/languages/android/]的配置，稍做改动就提交构建了。还以为能像node.js那样顺风顺水，没有想到竟然是一次又一次的失败。
 
-```java
-protected void initHeaderView() {
-    mTitleLeftView = (TextView) View.inflate(this, R.layout.title_left_tv, null);
-    mTitleTextView = (TextView) View.inflate(this, R.layout.title_middle_tv, null);
-
-    mTitleBar.setLeft(mTitleLeftView);
-    mTitleBar.setMiddle(mTitleTextView);
-
-    int padding = AppUtils.dp2px(this, 8);
-    mTitleBar.setPadding(padding, 0, padding, 0);
-    if(!isOverlay()){
-        mTitleBar.setBackgroundColor(getStatusBarColor());
-        mTitleBar.setBottomDrawable(AppUtils.getColor(this, R.color.divider));
-    }
-    setOnClickListener(mTitleLeftView);
-}
+## gradle版本
 ```
+
+FAILURE: Build failed with an exception.
+
+* Where:
+
+Build file '/home/travis/build/Jamling/QuickAF/library/build.gradle' line: 12
+
+* What went wrong:
+
+A problem occurred evaluating project ':af-library'.
+
+> Failed to apply plugin [id 'com.android.library']
+
+   > Minimum supported Gradle version is 2.14.1.  Current version is 2.2.1. If using the gradle wrapper, try editing the distributionUrl in /home/travis/build/Jamling/QuickAF/gradle/wrapper/gradle-wrapper.properties to gradle-2.14.1-all.zip
+
+* Try:
+
+Run with --stacktrace option to get the stack trace. Run with --info or --debug option to get more log output.
+
+BUILD FAILED
+
+Total time: 42.348 secs
+```
+
+## SDK设置
+sdk的配置一定要对应
+
+## jdk设置
+好像build tool 24以上的版本需要使用jdk8
+
+## 
 
 通常，BaseActivity/BaseFragment中已经对TitleBar初始化过了，所以子页面的初始化主要的就是控制TitleBar的右侧区域以及设置标题文字。设置标题文字调用`setTitle("titleName")`就可以了，下面主要描述对TitleBar右侧区域的初始化。
 
@@ -86,6 +99,8 @@ TitleBar内部未实现popup menu，如果需要使用下拉菜单，可以在�
 
 ## 参考
 QuickAF: https://github.com/Jamling/QuickAF
+https://docs.travis-ci.com/user/languages/android/
 
 [QuickAF]: https://github.com/Jamling/QuickAF
+[https://docs.travis-ci.com/user/languages/android/]: https://docs.travis-ci.com/user/languages/android/
 

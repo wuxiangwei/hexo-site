@@ -1,7 +1,7 @@
 ---
 title: Hexo your blog
 date: 2016-03-04 12:48:31
-category: [软件技术, Web]
+category: [Web]
 tags: [Hexo, Node.js]
 toc: true
 ---

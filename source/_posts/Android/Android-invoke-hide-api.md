@@ -1,7 +1,7 @@
 ---
 title: 使用反射調用隱藏或內部API
 date: 2015-12-26 21:00:00
-category: [软件技术, Android]
+category: [Android]
 tags: [Android, Java]
 toc: true
 description: 在Android中有些类、接口、方法没有向SDK开放，在此介绍使用Java反射技术，来实现Android隐藏API或内部API

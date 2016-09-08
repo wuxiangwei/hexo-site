@@ -1,7 +1,7 @@
 ---
 title: jdom解析xml
 date: 2008-08-16 22:21:00
-category: [软件技术,Java]
+category: [Java]
 tags: [xml]
 toc: false
 ---

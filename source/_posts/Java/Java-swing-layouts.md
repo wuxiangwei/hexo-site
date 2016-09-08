@@ -1,7 +1,7 @@
 ---
 title: Swing 布局管理器
 date: 2010-04-02 21:00:00
-category: [软件技术, Java]
+category: [Java]
 tags: [Java, Swing]
 toc: true
 ---

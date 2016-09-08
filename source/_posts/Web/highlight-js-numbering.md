@@ -1,7 +1,7 @@
 ---
 title: Highlight.js 添加代码行号
 date: 2016-08-10 22:30:30
-category: [软件技术, Web]
+category: [Web]
 tags: [js]
 toc: true
 ---

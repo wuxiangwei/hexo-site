@@ -1,7 +1,7 @@
 ---
 title: J2EE真不是个东西一之开场篇
 date: 2007-8-24 20:24:00
-category: [软件技术,Java]
+category: [Java]
 tags: [J2EE]
 toc: false
 ---

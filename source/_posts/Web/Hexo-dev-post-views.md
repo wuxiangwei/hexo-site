@@ -1,7 +1,7 @@
 ---
 title: Hexo高级教程之文章阅读计数
 date: 2016-07-28 22:30:30
-category: [软件技术, Web]
+category: [Web]
 tags: [Hexo, js]
 toc: true
 ---

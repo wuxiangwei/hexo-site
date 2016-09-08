@@ -1,7 +1,7 @@
 ---
 title: Android底部栏添加消息提醒小红点功能
 date: 2016-08-02 21:00:00
-category: [软件技术, Android]
+category: [Android]
 tags: [Android, QuickAF]
 toc: true
 description: Android底部栏显示小红点, Android RadioButton添加BadgeView

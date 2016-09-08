@@ -1,7 +1,7 @@
 ---
 title: 打造个性化的MP3（U盘）
 date: 2006-04-27 10:53:00
-category: [软件技术, 奇淫巧技]
+category: [奇淫巧技]
 tags: []
 toc: false
 ---

@@ -1,7 +1,7 @@
 ---
 title: Thread.join()在AsyncTask中的妙用
 date: 2012-06-08 21:00:00
-category: [软件技术, Android]
+category: [Android]
 tags: [Android, Java]
 toc: true
 ---

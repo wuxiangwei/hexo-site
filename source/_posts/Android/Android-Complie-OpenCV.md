@@ -1,7 +1,7 @@
 ---
 title: 使用Android NDK编译OpenCV应用
 date: 2011-08-01 21:00:00
-category: [软件技术, Android]
+category: [Android]
 tags: [Android]
 toc: true
 ---
