@@ -236,9 +236,10 @@ layout: false
         }));
 
         function inputPwd(count){
-          var pwd = '七夕快乐';
+          var pwd = ['七夕快乐','I love you'];
           var tip = '送给谁的？';
-          if (prompt('查看本网页需要密码\n密码提示：' + tip, '') != pwd) {
+          var txt = prompt('查看本网页需要密码\n密码提示：' + tip, '');
+          if (pwd.indexOf(txt) < 0) {
             alert('密码错误！');
             if (count >0) {
               return inputPwd(count-1);
