@@ -50,7 +50,6 @@ id is true
 ```java
     @Column(name = "_name")
     private String name;
-
     @Column(name = "_age")
     private int age;
 ```
@@ -153,6 +152,7 @@ Grade g = (Grade) item[1];
 ```
 
 ### 插入记录
+
 ```java
 Session session = ExampleContentProvider.getSession();
 // insert
@@ -162,6 +162,7 @@ long rowId = session.insert(s, null);
 ```
 
 ### 更新记录
+
 ```java
 // update student's name to Jame whose id is 1
 s.setId(1);
@@ -170,6 +171,7 @@ int rows = session.update(s);
 ```
 
 ### 删除记录
+
 ```java
 // delete student whose id is 2
 session.deleteById(Student.class, 2);

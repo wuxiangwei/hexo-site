@@ -1,5 +1,7 @@
 title: 个人简历
+description: 个人简历
 ---
+
 <style>
 thead {
   display: none;
@@ -141,7 +143,7 @@ thead {
 项目职务：	Program Leader & Software Developer
 项目职责：	软件框架，网络报文的解析
 
-### 1华为企业运营网站
+### 华为企业运营网站
 
 参与时间：	10.12-11.02
 项目描述：	按时下流行的SSH架构，开发企业运营网站

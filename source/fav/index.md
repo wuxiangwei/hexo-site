@@ -24,6 +24,7 @@ date: 2016-07-22 09:47:00
 - [Android 高仿 QQ5.0 侧滑菜单效果 自定义控件来袭 - Hongyang - 博客频道 - CSDN.NET](http://blog.csdn.net/lmj623565791/article/details/39257409)
 - [android中EditText插入用户名（块）效果（EditText插入图片）](http://blog.csdn.net/leinote/article/details/9422005)
 - [Android界面特效全汇总 - 千里之外 - 博客频道 - CSDN.NET](http://blog.csdn.net/woshinia/article/details/11039677)
+- http://romannurik.github.io/AndroidAssetStudio/
 
 ## Other
 - opencv http://www.opencv.org.cn/
@@ -38,3 +39,4 @@ date: 2016-07-22 09:47:00
 - http://idea.qinxi1992.cn/ idea reg server
 - http://shields.io/ 给你的项目打上各种标签
 - https://bandwagonhost.com/vps-hosting.php
+- http://clazz.github.io/tools/json-viewer/

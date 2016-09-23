@@ -129,4 +129,4 @@ node_sass:
 
 addlink:
   before_text: <blockquote class="addlink">本文永久链接： # text before the post link
-  after_text:  未经允许，禁止转载，如果您对文章有任何疑问，请在本页提交评论。</blockquote> # text after the post link  
+  after_text:  未经允许，禁止转载，如有问题，请在我的博客原始页面提交评论。</blockquote> # text after the post link  
