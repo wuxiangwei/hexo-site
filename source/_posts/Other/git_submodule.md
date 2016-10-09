@@ -75,5 +75,13 @@ git status
 进入主版本库/hexo-site，发现theme/nova已修改，提交修改。
 
 
+## .gitmodule文件
+
+```
+[submodule "themes/nova"]
+	path = themes/nova
+	url = https://github.com/wuxiangwei/hexo-theme-nova.git
+```
+添加Submodule后，将在hexo-site目录中生成.gitmodule文件用以记录Submodule的引用信息，包括在主版本库中的路径以及仓库地址。
 
 
