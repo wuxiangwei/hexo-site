@@ -45,4 +45,35 @@ git submodule update
 ```
 使用上述两个命令能够克隆Submodule的版本库。
 
+### 同步Submodule版本库的修改
+
+使用场景：Submodule版本库的主线(hexo-theme-nova)已修改，但这修改没有同步到主版本库(hexo-site)。
+
+Submodule版本库的主线的commit：
+```
+root@bs-dev:~/repo/hexo-theme-nova# git log --pretty=oneline
+6dccc29d93b0928a402290a3d9a0d2b1fd57e031 关闭打赏页面
+dabe550a44b98194546515ec78f8ec8c11b41340 Merge pull request #15 from Jamling/dev
+```
+
+主版本库的Submodule版本的commit：
+```
+root@bs-dev:~/repo/hexo-site# git submodule status 
+-dabe550a44b98194546515ec78f8ec8c11b41340 themes/nova
+```
+
+克隆Submodule版本库时(执行git submodule update命令)，自动将Submodule版本库checkout到给定的commit，进入Submodule路径可以查看到版本库的状态。在主版本中同步Submodule修改的步骤如下:
+
+```
+cd hexo-site/themes/nova
+git checkout master
+
+cd hexo-site
+git status
+```
+进入Submodule版本库/hexo-site/themes/nova，checkout出master分支
+进入主版本库/hexo-site，发现theme/nova已修改，提交修改。
+
+
+
 
