@@ -3,16 +3,16 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Jamling's Blog and Project Site
-subtitle: Jamling's Blog & Open Project 
-description: Jamling's Open Project include Java, Android, Eclipse and Technology Blog Articles.
-author: Jamling
+title: Shanno's Blog and Project Site
+subtitle: Shanno's Blog & Open Project 
+description: Shanno's Open Project include Ceph, Storage and Technology Blog Articles.
+author: Xiangwei wu
 language: [zh,en]
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://www.ieclipse.cn
+url: http://www.shanno.cn
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:

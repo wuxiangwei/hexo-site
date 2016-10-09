@@ -2,6 +2,7 @@ title: "Markdown 写代码那样写文档"
 date: 2014-08-07 20:23:29 
 categories: [Other]
 tags: [Markdown]
+toc: true
 ---
 
 本文不讲解Markdown的语法规则，只关注它带来的好处以及我使用的方法。语法规则可以参考[Markdown: Syntax](http://markdown.tw/)。

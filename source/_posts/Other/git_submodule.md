@@ -39,10 +39,19 @@ hexo-site               --- hexo-site主工程
 ```
 
 
-## 添加子模块
+## 添加Submodule
 
 ``` shell
 cd hexo-site/
 git submodule add -f https://github.com/wuxiangwei/hexo-theme-nova.git themes/nova
 ```
-执行添加子模块命令后，hexo-site目录中将生成1个新文件**.gitmodule**，文件中记录了子模块相关内容。
+执行添加子模块命令后，hexo-site目录中将生成1个新文件**.gitmodule**，文件记录submodule的引用信息，包括在当前项目的位置以及仓库所在。
+
+```
+[submodule "themes/nova"]
+	path = themes/nova
+	url = https://github.com/wuxiangwei/hexo-theme-nova.git
+```
+
+
+
