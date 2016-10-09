@@ -1,0 +1,3 @@
+[submodule "themes/nova"]
+	path = themes/nova
+	url = https://github.com/wuxiangwei/hexo-theme-nova.git
