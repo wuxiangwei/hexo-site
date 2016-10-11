@@ -82,8 +82,9 @@ theme: nova
 deploy:
   type: git
   repo: 
-    coding: git@git.coding.net:Jamling/Jamling,coding-pages
-    github: git@github.com:Jamling/jamling.github.com.git,master
+    github: https://github.com/wuxiangwei/wuxiangwei.github.io.git,master
+    # coding: git@git.coding.net:Jamling/Jamling,coding-pages
+    # github: git@github.com:Jamling/jamling.github.com.git,master
   
 marked:
   gfm: true
