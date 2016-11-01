@@ -109,7 +109,40 @@ gcc demo.c -o demo.exe
 
 双击demo.exe文件，不会提示依赖 msys-2.0.dll文件，可以正常运行。
 
+### 编译ceph-dokan
 
+**编译boost库**
+
+[下载](https://sourceforge.net/projects/boost/?source=typ_redirect)boost1.60.0代码
+
+```
+unzip boost_1_60_0.zip
+cd boost_1_60_0/
+./bootstrap.bat mingw
+./b2 toolset=gcc --with-system
+```
+此处，只编译boost的system模块
+
+
+**编译ceph-dokan**
+
+修改Makefile，指定boost路径
+
+修改编译选项 -fpermi
+
+错误1：
+
+```
+In file included from ./include/int_types.h:30:0,
+                 from ./include/types.h:18,
+                 from auth/Crypto.h:18,
+                 from libcephfs.cc:20:
+./mingw_include/linux/types.h:13:24: fatal error: parts/time.h: No such file or directory
+ #include <parts/time.h>
+                        ^
+compilation terminated.
+make: *** [Makefile:13：libcephfs.o] 错误 1
+```
 
 
 
