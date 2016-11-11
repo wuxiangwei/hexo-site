@@ -130,6 +130,11 @@ SimulatedServer内部维护了两个队列：内部队列inner_queue和优先级
 
 ### 简单调度 ssched
 
+``` shell
+./ssched_sim
+```
+启动模拟器。
+
 ``` C++
 // 服务端参数
 const uint server_count = 100;  // 服务数目
@@ -147,6 +152,64 @@ const std::chrono::seconds client_wait(10);  // 延迟启动的客户的延迟�
 ```
 
 SimpleServer的优先级队列是SimpleQueue类，SimpleQueue类调度请求的顺序是先进先出。具体实现参考该类的schedule_request()方法。
+
+### mClock调度 dmc
+
+``` shell
+./dmc_sim --conf dmc_sim_100th.conf
+```
+启动模拟器，dmc_sim_100th.conf为配置文件。
+
+```
+[global]                                                                                                                                 
+server_groups = 1   # 1组服务
+client_groups = 2   # 2组客户，分别定义在后面的client.0和client.1两个section内
+server_random_selection = true
+server_soft_limit = true
+
+[client.0]                                                                                          
+client_count = 99  # 客户数目
+client_wait = 0  # 客户延迟启动的时间                                                                       
+client_total_ops = 2000  # 每个客户发送的请求数目
+client_server_select_range = 10
+client_iops_goal = 50  # 每个客户发送请求的IOPS能力，也就是说，如果服务能力充足，那么客户最大的IOPS为50
+client_outstanding_ops = 100  # 最大等待请求的数目
+client_reservation = 5.0  # dmClock中的下限
+client_limit = 60.0  # dmClock中的上限                                                         
+client_weight = 1.0  # dmClock中的权重                                                              
+
+[client.1]
+client_count = 1
+client_wait = 10  # 延迟10s后启动客户机
+client_total_ops = 2000
+client_server_select_range = 10                                                                     
+client_iops_goal = 300
+client_outstanding_ops = 100                                                                        
+client_reservation = 20.0                                                                           
+client_limit = 200.0                                                                                
+client_weight = 10.0                                                                                
+
+[server.0]
+server_count = 100  # 服务的数目
+server_iops = 40  # 每个服务处理IO的能力，最大为40，总共为 100 * 40 = 4000
+server_threads = 1  # 每个服务的线程池大小
+```
+配置文件中各个字段的说明，另外重点说明下client.1客户机的配置：
+- 延迟启动(client_wait配置项)。延迟启动的目的是为了比较client.0客户机在有新客户机启动时IOPS的变化，一般来说都会开始下降；
+- 权重大(client_weight配置项) 。client.1只有一个客户机，客户机启动后能够比较出该客户机同其它客户机在IOPS上的差异，一般来说会大点；
+- 客户机能力强(client_iops_goal配置项)。在设置较大权重，但客户机的IOPS还不够高的情况下，可以调整client_iops_goal的值，增加客户机发送请求的能力。
+
+
+``` C++
+struct ClientInfo {
+    const double reservation;  // 下限，默认20.0
+    const double limit;  // 上限，默认 60.0
+    const double weight;  // 权重，默认 1.0
+    const double reservation_inv; // 下限的倒数
+    const double limit_inv; // 上限的倒数
+    const double weight_inv; //  权重的倒数
+};
+```
 
 
 # VS快捷键
